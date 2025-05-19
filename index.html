@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Petani vs Hama</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- GAME CONTAINER -->
+<div id="game-container" style="display:none;">
+  <img id="background" src="assets/background.gif" alt="background">
+  <div id="farmer">
+    <img src="assets/farmer.gif" alt="Petani" />
+  </div>
+  <div id="pests-container"></div>
+
+  <!-- UI -->
+  <div id="ui">
+    <div id="hp-bar"><span id="hp-fill"></span></div>
+    <div id="score">Skor: 0</div>
+  </div>
+</div>
+
+<!-- MAIN MENU -->
+<div id="main-menu" class="menu-screen">
+  <h1>KEBUN KETIK</h1>
+  <button type="button" onclick="startGame()">Play</button>
+  <button type="button" onclick="showOptions()">Options</button>
+  <button type="button" onclick="showCredits()">Credits</button>
+</div>
+
+<!-- OPTIONS -->
+<div id="options-menu" class="menu-screen" style="display:none;">
+  <h2>Options</h2>
+  <label>
+    <input type="checkbox" id="mute-toggle" onchange="toggleMute()"> Mute Sound
+  </label><br><br>
+  <button onclick="backToMenu()">Back</button>
+</div>
+
+<!-- CREDITS -->
+<div id="credits-menu" class="menu-screen" style="display:none;">
+  <h2>Credits</h2>
+  <p>Nabil Pratama Hidayat - Programmer</p>
+  <p>Yazid Putra Aditya - Artist</p>
+  <p>Irsyaad Ready Pranoto - Game Designer</p>
+  <p>Sound Effect by David Renda & David Fesliyan</p>
+  <button onclick="backToMenu()">Back</button>
+</div>
+
+<div id="end-screen" class="menu-screen" style="display: none; flex-direction: column; align-items: center; justify-content: center;">
+  <h1 id="end-message">Game Over</h1>
+  <p id="final-score" class="score-text">Skor: 0</p>
+  <button onclick="restartGame()">Main Lagi</button>
+</div>
+
+
+<!-- STAGE TRANSITION -->
+<div id="stage-transition-overlay"></div>
+
+<!-- BOSS HP BAR -->
+<div id="boss-hp-container" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); text-align: center; z-index: 1000;">
+  <div style="font-size: 24px; font-weight: bold; color: red; margin-bottom: 5px;">BOSS</div>
+  <div id="boss-hp-bar" style="width: 400px; height: 25px; background: #444; border-radius: 12px; overflow: hidden; border: 2px solid red;">
+    <div id="boss-hp-fill" style="height: 100%; width: 100%; background: red; transition: width 0.3s ease;"></div>
+  </div>
+</div>
+<audio id="bgm-stage1" loop>
+  <source src="audio/stage1.mp3" type="audio/mpeg" />
+</audio>
+<audio id="bgm-stage2" loop>
+  <source src="audio/stage2.mp3" type="audio/mpeg" />
+</audio>
+<audio id="bgm-stage3" loop>
+  <source src="audio/stage3.mp3" type="audio/mpeg" />
+</audio>
+
+<audio id="pest-death-sound" src="audio/pestdeath.mp3"></audio>
+<audio id="click-sound" src="audio/click.mp3"></audio>
+<audio id="boss-hit-sound" src="assets/boss-hit.mp3" preload="auto"></audio>
+
+
+<!-- SCRIPT -->
+<script src="script.js"></script>
+</body>
+</html>
