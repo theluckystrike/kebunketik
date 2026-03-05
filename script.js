@@ -70,7 +70,7 @@ function spawnPest() {
     word: word,
     typed: "",
     position: 100,
-    speed: 0.2 + Math.random() * 0.2,
+    speed: (0.2 + currentStage * 0.1) + Math.random() * 0.2,
     typedSpan: typedSpan,
     untypedSpan: untypedSpan
   };
