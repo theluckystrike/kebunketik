@@ -140,17 +140,6 @@ function handleKeyPress(event) {
   // Boss defeated = menang!
   showEndScreen("Selamat! Kamu Menang!");
 }
-            if (pest.hp <= 0) {
-              score += 100;
-              showPopup(pest.element, "+100", "score");
-              pest.element.remove();
-              activePests.splice(i, 1);
-
-              document.getElementById("boss-hp-container").style.display = "none";
-
-              // Boss defeated = menang!
-              showEndScreen("Selamat! Kamu Menang!");
-            }
             else {
             // Ganti kata boss berikutnya
             pest.currentWordIndex++;
